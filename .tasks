@@ -1,0 +1,8 @@
+# vim: set fenc=utf-8 ft=dosini:
+
+[start]
+command=cargo run -- --engine=youdao --from=en --to=zh good morning
+output=terminal
+
+# command=:AsyncTask cmake-build-and-run
+# command=:AsyncTask qmake-build-and-run
