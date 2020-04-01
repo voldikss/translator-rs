@@ -1,5 +1,7 @@
 # translator
 
+![CI](https://github.com/voldikss/translator-rs/workflows/CI/badge.svg)
+
 ## Introduction
 
 A simple translating cli tool.

@@ -83,7 +83,8 @@ mod tests {
     use super::*;
 
     #[tokio::test]
-    async fn test_translate_bing() {
+    #[ignore]
+    async fn test_bing() {
         let translator = BingTranslator::new();
         assert_eq!(
             r#"Translation { text: "good", engine: "bing", paraphrase: None, phonetic: Some("ɡʊd"), explains: ["adv.好", "n.好处；好人；益处；善行", "adj.有好处；好的；优质的；符合标准的"] }"#,

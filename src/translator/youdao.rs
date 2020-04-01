@@ -1,4 +1,4 @@
-use super::TransError; //TODO
+use super::TransResult;
 use super::Translate;
 use super::Translation;
 
@@ -92,7 +92,7 @@ impl YoudaoTranslator {
 
 #[async_trait]
 impl Translate for YoudaoTranslator {
-    async fn translate(&self, text: &str, sl: &str, tl: &str) -> Result<Translation, TransError> {
+    async fn translate(&self, text: &str, sl: &str, tl: &str) -> TransResult<Translation> {
         let salt = self.salt();
         let sign = self.sign(text, salt.as_str());
         let params: Vec<(&str, &str)> = vec![
@@ -135,7 +135,7 @@ mod tests {
     use super::*;
 
     #[tokio::test]
-    async fn test_translate_youdao() {
+    async fn test_youdao() {
         let translator = YoudaoTranslator::new();
         assert_eq!(
             r#"Translation { text: "good morning", engine: "youdao", paraphrase: Some("早上好"), phonetic: None, explains: ["", "int. 早安，早上好\r\n"] }"#,

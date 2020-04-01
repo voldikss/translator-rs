@@ -75,7 +75,7 @@ mod tests {
     use super::*;
 
     #[tokio::test]
-    async fn test_translate_ciba() {
+    async fn test_ciba() {
         let translator = CibaTranslator::new();
         assert_eq!(
             r#"Translation { text: "good morning", engine: "ciba", paraphrase: None, phonetic: Some("ɡud ˈmɔ:niŋ"), explains: ["int. （上午见面时用语）早安，你（们）好;（上午分别时用语）再会;"] }"#,
