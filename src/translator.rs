@@ -77,7 +77,7 @@ pub async fn translate(engine: &str, text: &str, sl: &str, tl: &str) {
 
 fn echohl(translation: &Translation) {
     // TODO: echo with highlight
-    println!("{:?}", translation);
+    println!("{:#?}", translation);
 }
 
 #[cfg(test)]
