@@ -1,6 +1,8 @@
 # vim: set fenc=utf-8 ft=dosini:
 
 [start]
+# command=cargo run -- --engine=bing --from=en --to=zh good
+# command=cargo run -- --engine=ciba --from=en --to=zh good morning
 command=cargo run -- --engine=youdao --from=en --to=zh good morning
 output=terminal
 

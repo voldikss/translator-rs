@@ -132,5 +132,20 @@ impl Translate for YoudaoTranslator {
 
 #[cfg(test)]
 mod tests {
-    // TODO
+    use super::*;
+
+    #[tokio::test]
+    async fn test_translate_youdao() {
+        let translator = YoudaoTranslator::new();
+        assert_eq!(
+            r#"Translation { text: "good morning", engine: "youdao", paraphrase: Some("早上好"), phonetic: None, explains: ["", "int. 早安，早上好\r\n"] }"#,
+            format!(
+                "{:?}",
+                translator
+                    .translate("good morning", "en", "zh")
+                    .await
+                    .unwrap()
+            )
+        )
+    }
 }

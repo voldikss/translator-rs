@@ -3,8 +3,13 @@ use reqwest;
 use serde_json;
 use url;
 
+pub mod bing;
 pub mod ciba;
 pub mod youdao;
+
+use bing::BingTranslator;
+use ciba::CibaTranslator;
+use youdao::YoudaoTranslator;
 
 #[derive(Debug)]
 struct Translation {
@@ -51,15 +56,14 @@ trait Translate {
     // fn explains(&self, res: &T) -> Vec<String>;
 }
 
-use ciba::CibaTranslator;
-use youdao::YoudaoTranslator;
-
 struct Translator;
+
 impl Translator {
     fn from(text: &str) -> Option<Box<dyn Translate>> {
         match text {
-            "youdao" => Some(Box::new(YoudaoTranslator::new())),
+            "bing" => Some(Box::new(BingTranslator::new())),
             "ciba" => Some(Box::new(CibaTranslator::new())),
+            "youdao" => Some(Box::new(YoudaoTranslator::new())),
             _ => None,
         }
     }
@@ -73,7 +77,7 @@ pub async fn translate(engine: &str, text: &str, sl: &str, tl: &str) {
 
 fn echohl(translation: &Translation) {
     // TODO: echo with highlight
-    println!("{:#?}", translation);
+    println!("{:?}", translation);
 }
 
 #[cfg(test)]
